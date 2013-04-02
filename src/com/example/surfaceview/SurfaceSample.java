@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -47,8 +48,15 @@ class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 		// Canvasを取得する
 		Canvas canvas = holder.lockCanvas();
 
-		// 背景を白にする
-		canvas.drawColor(Color.WHITE);
+		// 背景を青にする
+		canvas.drawColor(Color.BLUE);
+		
+		// 描画するための線の色を設定
+		Paint mainPaint = new Paint();
+		mainPaint.setStyle(Paint.Style.FILL);
+		mainPaint.setARGB(255, 255, 255, 100);
+		
+		canvas.drawLine(0, 0, 50, 50, mainPaint);
 
 		// 画面に描画をする
 		holder.unlockCanvasAndPost(canvas);
